@@ -12,15 +12,15 @@
         rel="stylesheet" />
     <style>
         :root {
-            color-scheme: light;
-            --bg: #f7f6f2;
-            --surface: #ffffff;
-            --surface-strong: #f1efe9;
-            --border: #dedbd4;
-            --text: #121212;
-            --muted: #6e6b65;
-            --accent: #1f6d4b;
-            --shadow: 0 30px 80px rgba(15, 16, 15, 0.08);
+            color-scheme: dark;
+            --bg: #05070f;
+            --surface: #0b1220;
+            --surface-strong: #111a2f;
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #e6eeff;
+            --muted: #94a8c8;
+            --accent: #39d98a;
+            --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
             --radius: 24px;
             --max: 1180px;
             --grid-gap: 2rem;
@@ -39,11 +39,11 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background: radial-gradient(circle at top left, rgba(31, 109, 75, 0.12), transparent 24%),
-                radial-gradient(circle at bottom right, rgba(31, 109, 75, 0.08), transparent 28%),
+            background: radial-gradient(circle at top left, rgba(57, 217, 138, 0.14), transparent 18%),
+                radial-gradient(circle at bottom right, rgba(57, 217, 138, 0.08), transparent 24%),
                 var(--bg);
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         img {
@@ -67,8 +67,8 @@
             top: 0;
             z-index: 20;
             backdrop-filter: blur(16px);
-            background: rgba(247, 246, 242, 0.92);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            background: rgba(10, 16, 29, 0.94);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .nav-inner {
@@ -190,7 +190,7 @@
             height: 360px;
             top: -80px;
             left: -60px;
-            background: rgba(31, 109, 75, 0.12);
+            background: rgba(57, 217, 138, 0.16);
             filter: blur(28px);
         }
 
@@ -199,7 +199,7 @@
             height: 260px;
             bottom: -60px;
             right: -40px;
-            background: rgba(31, 109, 75, 0.08);
+            background: rgba(57, 217, 138, 0.1);
             filter: blur(24px);
         }
 
@@ -211,7 +211,7 @@
 
         .hero-copy p {
             font-size: 1.05rem;
-            color: #333333;
+            color: var(--muted);
             max-width: 42rem;
         }
 
@@ -230,7 +230,7 @@
             gap: 0.75rem;
             padding: 0.85rem 1rem;
             border-radius: 18px;
-            background: rgba(31, 109, 75, 0.07);
+            background: rgba(57, 217, 138, 0.08);
             color: var(--text);
             font-weight: 500;
         }
@@ -265,23 +265,16 @@
         .button-secondary {
             background: transparent;
             color: var(--text);
-            border: 1px solid rgba(18, 18, 18, 0.08);
+            border: 1px solid rgba(57, 217, 138, 0.3);
             box-shadow: none;
         }
 
         .button-secondary:hover {
-            background: rgba(31, 109, 75, 0.06);
+            background: rgba(57, 217, 138, 0.12);
         }
 
         .button:hover {
             transform: translateY(-1px);
-        }
-
-        .button-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid rgba(18, 18, 18, 0.08);
-            box-shadow: none;
         }
 
         .hero-aside {
@@ -529,13 +522,15 @@
                     <h1>I'm <span>Jennifer Nkeh Beri</span>, an ICT University student in Yaounde focused on secure
                         digital experiences.
                     </h1>
-                    <p>As a cybersecurity student, I combine hands-on learning with practical defense skills for network
-                        security, cloud protection, and incident resilience.</p>
+                    <p>I am a Cybersecurity student at ICT University focused on ethical hacking and penetration
+                        testing. Beyond finding system vulnerabilities, I build secure web applications using Flask and
+                        modern tools. I love bridging the gap between offensive security and solid software development.
+                    </p>
                     <ul class="hero-highlights">
-                        <li>Threat detection & response</li>
-                        <li>Cloud security architecture</li>
-                        <li>Compliance-ready operations</li>
-                        <li>Automated monitoring and reporting</li>
+                        <li>Ethical hacking</li>
+                        <li>Penetration testing</li>
+                        <li>Secure Flask development</li>
+                        <li>Defensive engineering</li>
                     </ul>
                     <div class="hero-actions">
                         <a class="button" href="#contact">Connect</a>
@@ -578,10 +573,10 @@
             <div class="section-grid">
                 <div>
                     <p class="eyebrow">About me</p>
-                    <h2>Crafting secure systems for modern teams.</h2>
-                    <p>My work is centered on understanding risk, strengthening environments, and delivering protection
-                        that supports growth. I translate technical security requirements into operational processes,
-                        controls, and dependable infrastructure.</p>
+                    <h2>Cybersecurity student and web app builder.</h2>
+                    <p>I am a Cybersecurity student at ICT University focused on ethical hacking and penetration
+                        testing. Beyond finding system vulnerabilities, I build secure web applications using Flask and
+                        modern tools.</p>
                     <ul class="highlight-list">
                         <li>Helping organizations implement practical defensive measures.</li>
                         <li>Evaluating security gaps across networks and applications.</li>
@@ -626,12 +621,6 @@
                     <div class="project-meta">Cybersecurity · Assessment · Risk remediation</div>
                 </article>
                 <article class="project-card">
-                    <h4>Cloud hardening pipeline</h4>
-                    <p>Designed an automated configuration workflow for secure cloud deployments, including access
-                        controls, monitoring, and audit readiness.</p>
-                    <div class="project-meta">Cloud Security · Automation · Monitoring</div>
-                </article>
-                <article class="project-card">
                     <h4>Incident response blueprint</h4>
                     <p>Built response documentation and process flows to help teams detect, escalate, and recover
                         quickly from security incidents.</p>
@@ -656,6 +645,11 @@
                     <div class="cert-meta">Linux · Infrastructure · Scripting</div>
                 </article>
                 <article class="cert-card">
+                    <h4>The Complete Full-Stack Web Development Bootcamp</h4>
+                    <p>Instructor: Dr. Angela Yu, Developer and Lead Instructor. Completed March 24, 2026.</p>
+                    <div class="cert-meta">Full-stack · Flask · Web Development</div>
+                </article>
+                <article class="cert-card">
                     <h4>Network Security Essentials</h4>
                     <p>Focused on secure network design, firewall control, and defensive architecture.</p>
                     <div class="cert-meta">Networking · Monitoring · Defense</div>
@@ -674,7 +668,7 @@
                 <div class="contact-box">
                     <h3>Get in touch</h3>
                     <ul class="contact-list">
-                        <li><strong>Email:</strong> <a href="mailto:hello@cyberberi.dev">hello@cyberberi.dev</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:berindi26@gmail.com">berindi26@gmail.com</a></li>
                         <li><strong>GitHub:</strong> <a href="https://github.com/ndijennifer" target="_blank"
                                 rel="noopener noreferrer">github.com/ndijennifer</a></li>
                         <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ndi-jennifer-nkeh-b828b2298"
