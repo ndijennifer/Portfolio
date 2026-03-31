@@ -1,0 +1,694 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jennifer Nkeh Beri — Cybersecurity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f7f6f2;
+            --surface: #ffffff;
+            --surface-strong: #f1efe9;
+            --border: #dedbd4;
+            --text: #121212;
+            --muted: #6e6b65;
+            --accent: #1f6d4b;
+            --shadow: 0 30px 80px rgba(15, 16, 15, 0.08);
+            --radius: 24px;
+            --max: 1180px;
+            --grid-gap: 2rem;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, rgba(31, 109, 75, 0.12), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(31, 109, 75, 0.08), transparent 28%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page-shell {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(16px);
+            background: rgba(247, 246, 242, 0.92);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .brand {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .brand strong {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.93rem;
+            color: var(--muted);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .eyebrow::before {
+            content: '▹';
+            font-size: 0.9rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(3.5rem, 5vw, 5.25rem);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        h1 span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1.25rem;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-weight: 400;
+        }
+
+        p,
+        li {
+            font-size: 1rem;
+            color: var(--muted);
+        }
+
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.2fr .9fr;
+            align-items: center;
+            gap: 3rem;
+            min-height: calc(100vh - 90px);
+            padding-top: 1rem;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 360px;
+            height: 360px;
+            top: -80px;
+            left: -60px;
+            background: rgba(31, 109, 75, 0.12);
+            filter: blur(28px);
+        }
+
+        .hero::after {
+            width: 260px;
+            height: 260px;
+            bottom: -60px;
+            right: -40px;
+            background: rgba(31, 109, 75, 0.08);
+            filter: blur(24px);
+        }
+
+        .hero-copy {
+            max-width: 42rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-copy p {
+            font-size: 1.05rem;
+            color: #333333;
+            max-width: 42rem;
+        }
+
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 1.75rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hero-highlights li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1rem;
+            border-radius: 18px;
+            background: rgba(31, 109, 75, 0.07);
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .hero-highlights li::before {
+            content: '▹';
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2.25rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 1.6rem;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 18px 45px rgba(31, 109, 75, 0.12);
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(18, 18, 18, 0.08);
+            box-shadow: none;
+        }
+
+        .button-secondary:hover {
+            background: rgba(31, 109, 75, 0.06);
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(18, 18, 18, 0.08);
+            box-shadow: none;
+        }
+
+        .hero-aside {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .profile-card {
+            padding: 1.8rem;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            padding: 1rem;
+            border-radius: 18px;
+            background: var(--surface-strong);
+            border: 1px solid var(--border);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 0.35rem;
+            color: var(--text);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-photo {
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            border-radius: var(--radius);
+            background: var(--surface);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .pill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 1rem 0 0;
+            padding: 0;
+        }
+
+        .pill-list li {
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            background: #f3f2ee;
+            color: #444;
+            font-size: 0.93rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0 0;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .highlight-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+        }
+
+        .projects-grid,
+        .cert-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .project-card,
+        .cert-card {
+            border-radius: 28px;
+            background: var(--surface);
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card h4,
+        .cert-card h4 {
+            margin-bottom: 0.85rem;
+            font-size: 1.1rem;
+        }
+
+        .project-card p,
+        .cert-card p {
+            color: var(--muted);
+        }
+
+        .project-meta,
+        .cert-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .contact-panel {
+            display: grid;
+            grid-template-columns: 1.4fr .85fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .contact-box {
+            padding: 2rem;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-box h3 {
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .contact-list a {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .footer {
+            padding-top: 2rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        @media (max-width: 920px) {
+
+            .hero,
+            .contact-panel,
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .page-shell {
+                padding: 0 1rem 3rem;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.7rem, 10vw, 4rem);
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-shell">
+        <nav>
+            <div class="nav-inner">
+                <div class="brand"><strong>J</strong>ennifer Nkeh Beri</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Work</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#contact">Contact</a>
+                    <a class="button button-secondary" href="mailto:hello@cyberberi.dev">Hire Me</a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="section" id="hero">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Cybersecurity Professional</p>
+                    <h1>I'm <span>Jennifer Nkeh Beri</span>, building secure digital experiences and resilient systems.
+                    </h1>
+                    <p>Cybersecurity specialist with experience in threat detection, vulnerability assessment, and
+                        secure infrastructure. I help teams protect sensitive data while improving reliability and
+                        trust.</p>
+                    <ul class="hero-highlights">
+                        <li>Threat detection & response</li>
+                        <li>Cloud security architecture</li>
+                        <li>Compliance-ready operations</li>
+                        <li>Automated monitoring and reporting</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a class="button" href="#contact">Work together</a>
+                        <a class="button button-secondary" href="#projects">View work</a>
+                    </div>
+                </div>
+
+                <div class="hero-aside">
+                    <div class="hero-photo">
+                        <img src="jennifer.jpg" alt="Jennifer Nkeh Beri portrait" />
+                    </div>
+                    <div class="profile-card">
+                        <h3>Professional snapshot</h3>
+                        <p>Focused on modern cybersecurity, risk reduction, and practical cloud security controls for
+                            scalable businesses.</p>
+                        <div class="stats">
+                            <div class="stat">
+                                <strong>Cybersecurity</strong>
+                                <span>Security operations, audits, compliance</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Cloud & Infra</strong>
+                                <span>Azure, AWS, Linux, secure deployments</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Automation</strong>
+                                <span>Python, PowerShell, monitoring, reporting</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Trusted</strong>
+                                <span>Open to new opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="section-grid">
+                <div>
+                    <p class="eyebrow">About me</p>
+                    <h2>Crafting secure systems for modern teams.</h2>
+                    <p>My work is centered on understanding risk, strengthening environments, and delivering protection
+                        that supports growth. I translate technical security requirements into operational processes,
+                        controls, and dependable infrastructure.</p>
+                    <ul class="highlight-list">
+                        <li>Helping organizations implement practical defensive measures.</li>
+                        <li>Evaluating security gaps across networks and applications.</li>
+                        <li>Creating incident-ready operations with clear monitoring.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Profile details</h4>
+                    <ul class="highlight-list">
+                        <li><strong>Location:</strong> Abia State, Nigeria</li>
+                        <li><strong>Specialty:</strong> Cybersecurity, Cloud Security, Linux</li>
+                        <li><strong>Tools:</strong> Python, Git, Docker, SIEM</li>
+                        <li><strong>Status:</strong> Open to work</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <p class="eyebrow">Skills</p>
+            <h2>Tools of the trade.</h2>
+            <div class="pill-list">
+                <li>Network Security</li>
+                <li>Endpoint Protection</li>
+                <li>Vulnerability Assessment</li>
+                <li>Cloud Security</li>
+                <li>Penetration Testing</li>
+                <li>Linux Administration</li>
+                <li>Python Automation</li>
+                <li>Audit & Compliance</li>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <p class="eyebrow">Work</p>
+            <h2>Things I've built.</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h4>Security posture review</h4>
+                    <p>Performed a detailed assessment of network architecture, system hardening, and policy
+                        implementation to reduce exposure and improve compliance.</p>
+                    <div class="project-meta">Cybersecurity · Assessment · Risk remediation</div>
+                </article>
+                <article class="project-card">
+                    <h4>Cloud hardening pipeline</h4>
+                    <p>Designed an automated configuration workflow for secure cloud deployments, including access
+                        controls, monitoring, and audit readiness.</p>
+                    <div class="project-meta">Cloud Security · Automation · Monitoring</div>
+                </article>
+                <article class="project-card">
+                    <h4>Incident response blueprint</h4>
+                    <p>Built response documentation and process flows to help teams detect, escalate, and recover
+                        quickly from security incidents.</p>
+                    <div class="project-meta">IR · Runbooks · Operational resilience</div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="certifications">
+            <p class="eyebrow">Certifications</p>
+            <h2>Certifications & courses.</h2>
+            <div class="cert-grid">
+                <article class="cert-card">
+                    <h4>Cybersecurity Fundamentals</h4>
+                    <p>Practical training in security concepts, endpoint hardening, and incident prevention.</p>
+                    <div class="cert-meta">Security · Cloud · Compliance</div>
+                </article>
+                <article class="cert-card">
+                    <h4>Linux Systems Administration</h4>
+                    <p>Hands-on Linux administration skills for secured server environments and automation workflows.
+                    </p>
+                    <div class="cert-meta">Linux · Infrastructure · Scripting</div>
+                </article>
+                <article class="cert-card">
+                    <h4>Network Security Essentials</h4>
+                    <p>Focused on secure network design, firewall control, and defensive architecture.</p>
+                    <div class="cert-meta">Networking · Monitoring · Defense</div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="contact-panel">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let's work together.</h2>
+                    <p>Whether you need security support, a secure migration, or a stronger operations foundation, I’m
+                        available for new roles and freelance projects.</p>
+                </div>
+                <div class="contact-box">
+                    <h3>Get in touch</h3>
+                    <ul class="contact-list">
+                        <li><strong>Email:</strong> <a href="mailto:hello@cyberberi.dev">hello@cyberberi.dev</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/ndijennifer" target="_blank"
+                                rel="noopener noreferrer">github.com/ndijennifer</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ndi-jennifer-nkeh-b828b2298"
+                                target="_blank"
+                                rel="noopener noreferrer">linkedin.com/in/ndi-jennifer-nkeh-b828b2298</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            © 2026 Jennifer Nkeh Beri — Cybersecurity professional.
+        </footer>
+    </div>
+</body>
+
+</html>
